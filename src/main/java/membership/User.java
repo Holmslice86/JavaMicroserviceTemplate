@@ -1,7 +1,5 @@
 package membership;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
-
 import java.util.UUID;
 
 public class User {
@@ -10,7 +8,7 @@ public class User {
     private String first;
     private String last;
 
-    public User(String first, String last) throws InvalidArgumentException {
+    public User(String first, String last) throws IllegalArgumentException {
         this.first = validateName(first);
         this.last = validateName(last);
         id = UUID.randomUUID();
@@ -28,13 +26,12 @@ public class User {
         return last;
     }
 
-    public String validateName(String name) throws InvalidArgumentException {
+    public String validateName(String name) throws IllegalArgumentException {
 
         boolean nameContainsInvalidCharacters = !name.chars().allMatch(Character::isLetter);
 
         if (nameContainsInvalidCharacters) {
-            String[] s = {name, "Names can only contain letters"};
-            throw new InvalidArgumentException(s);
+            throw new IllegalArgumentException("Names can only contain letters");
         }
         return name;
     }

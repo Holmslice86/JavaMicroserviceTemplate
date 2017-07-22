@@ -1,4 +1,4 @@
-package microservice;
+package greeting;
 
 public class Greeting {
 
