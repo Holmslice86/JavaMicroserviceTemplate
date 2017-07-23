@@ -1,13 +1,14 @@
-package membership;
+package microservice.membership;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface UserRepository {
 
-    User get(UUID id);
+    Optional<User> get(UUID id);
 
-    ArrayList<User> getAll();
+    List<User> getAll();
 
     void add(User user);
 

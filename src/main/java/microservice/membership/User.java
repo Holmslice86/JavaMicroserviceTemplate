@@ -1,4 +1,4 @@
-package membership;
+package microservice.membership;
 
 import java.util.UUID;
 
@@ -14,21 +14,21 @@ public class User {
         id = UUID.randomUUID();
     }
 
-    public UUID getId(){
+    public UUID Id() {
         return id;
     }
 
-    public String getFirst() {
+    public String First() {
         return first;
     }
 
-    public String getLast() {
+    public String Last() {
         return last;
     }
 
     public String validateName(String name) throws IllegalArgumentException {
 
-        boolean nameContainsInvalidCharacters = !name.chars().allMatch(Character::isLetter);
+        boolean nameContainsInvalidCharacters = name == null || !name.chars().allMatch(Character::isLetter);
 
         if (nameContainsInvalidCharacters) {
             throw new IllegalArgumentException("Names can only contain letters");
